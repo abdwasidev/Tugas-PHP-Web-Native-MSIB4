@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,200;0,400;0,700;1,400&display=swap");
+
+:root {
+  max-width: 1600px;
+  --blue-bg: #f2f5ff;
+  --blue-color: #6e91fe;
+  --white-bg: #ffffff;
+  --black-bg: #000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Albert Sans", sans-serif;
+  background-color: var(--white-bg);
+  color: var(--text-cl);
+}
+
+a {
+  text-decoration: none;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+a:hover {
+  color: var(--white-bg);
+  background-color: var(--blue-color);
+}
+
+.main-content {
+  margin: 30px;
+}
+
+h1 {
+  padding: 20px 0;
+}
+
+.card {
+  border-radius: 5px;
+  background: var(--blue-bg);
+  color: var();
+}
+
+.card > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+}
+
+.hasil {
+  padding: 2px 5px;
+  border-radius: 2px;
+  font-weight: bold;
+  background: var(--blue-color);
+  color: var(--blue-bg);
+}
+
+.data-hasil {
+  position: relative;
+  background-color: var(--white-bg);
+  margin: 0 20px;
+  border-radius: 10px;
+}
+
+.data-hasil > * {
+  padding: 8px 0;
+}
+
+tr {
+  text-align: center;
+}
+
+th,
+td {
+  padding: 10px 5px;
+}
+
+thead tr {
+  background: var(--blue-bg);
+}
