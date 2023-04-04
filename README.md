@@ -1,10 +1,6 @@
 # Tugas-PHP-Web-Native-MSIB4
 Repository Tugas PHP Web Native MSIB4
 
-# Tugas-PHP-MSIB4
-
-## Full Stack Develover - PHP MSIB 4
-
 ## About
 
 > - Abdul Wasi' Al-Afif
