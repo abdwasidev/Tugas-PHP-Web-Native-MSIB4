@@ -127,25 +127,19 @@ FROM produk;
 SELECT COUNT(tmp_lahir) AS jumlah_tmp_lahir FROM pelanggan;
 
 -- SOAL 3.4 :: 2.	Tampilkan jumlah statistik produk berdasarkan jenis produk
-SELECT jenis_produk_id, COUNT(jenis_produk_id) AS jumlah_data FROM produk GROUP BY jenis_produk_id;
+SELECT jenis_produk_id, COUNT(*) AS jumlah_data FROM produk GROUP BY jenis_produk_id;
 
 -- SOAL 3.4 :: 3.	Tampilkan data pelanggan yang usianya dibawah rata usia pelanggan
-SELECT (YEAR(NOW())-YEAR(tgl_lahir)) AS umur, COUNT(YEAR(NOW())-YEAR(tgl_lahir)) AS banyak_pelanggan FROM pelanggan GROUP BY umur;
-SELECT FORMAT(AVG(DISTINCT (YEAR(NOW())-YEAR(tgl_lahir))), 2) AS rata2_umur, ((YEAR(NOW())-YEAR(tgl_lahir)) < (YEAR(NOW())-YEAR(tgl_lahir))) AS pelanggan_dibawah_rata2 FROM pelanggan;
-
+SELECT nama_pelanggan, (YEAR(NOW())-YEAR(tgl_lahir)) AS umur FROM pelanggan WHERE (YEAR(NOW())-YEAR(tgl_lahir)) < (SELECT AVG((YEAR(NOW())-YEAR(tgl_lahir))) FROM pelanggan);
 
 -- SOAL 3.4 :: 4.	Tampilkan data produk yang harganya diatas rata-rata harga produk
-SELECT *, AVG(harga_jual) AS rata2 FROM produk HAVING harga_jual > rata2;
--- SELECT nama, harga_jual, AVG(harga_jual) AS rata2 
--- FROM produk 
--- GROUP BY nama HAVING harga_jual > rata2;
-
+SELECT * FROM produk WHERE harga_jual > (SELECT AVG(harga_jual) FROM produk);
 
 -- SOAL 3.4 :: 5.	Tampilkan data pelanggan yang memiliki kartu dimana iuran tahunan kartu diatas 90rb
-SELECT * FROM pelanggan WHERE kartu_id IN (SELECT iuran from kartu) > 90000;
+SELECT * FROM pelanggan WHERE kartu_id IN (SELECT id FROM kartu WHERE iuran > 90000);
 
 -- SOAL 3.4 :: 6.	Tampilkan statistik data produk dimana harga produknya dibawah rata-rata harga produk secara keseluruhan
-SELECT *, AVG(harga_beli) AS rata2 FROM produk HAVING harga_beli < rata2;
+SELECT COUNT(*) AS jumlah_produk, MIN(harga_jual) AS Harga_Terendah, MAX(harga_jual) AS Harga_Tertinggi, AVG(harga_jual) AS Harga_Rata2 FROM produk WHERE harga_jual < (SELECT AVG(harga_jual) FROM produk);
 
 -- SOAL 3.4 :: 7.	Tampilkan data pelanggan yang memiliki kartu dimana diskon kartu yang diberikan diatas 3%
-SELECT * FROM pelanggan WHERE kartu_id IN (SELECT diskon from kartu) > 3;
+SELECT nama_pelanggan, jk, kartu_id as kartu FROM pelanggan WHERE kartu_id in (SELECT id FROM kartu WHERE diskon > 3);
