@@ -1,19 +1,19 @@
 <?php
 
-$model = new Produk();
-$data_produk = $model->dataProduk();
+$model = new Kartu();
+$data_kartu = $model->dataKartu();
 
 ?>
 
 <head>
-    <title>Product - WasiAdmin</title>
+    <title>Kartu - WasiAdmin</title>
 </head>
 <main>
     <div class="container-fluid px-4">
-    <h1 class="mt-4">Product</h1>
+    <h1 class="mt-4">Kartu</h1>
     <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="./">Dashboard</a></li>
-            <li class="breadcrumb-item active">Product</li>
+            <li class="breadcrumb-item active">Kartu</li>
     </ol>
     <div class="card mb-4">
         <div class="card-body">
@@ -24,7 +24,7 @@ $data_produk = $model->dataProduk();
     <div class="card mb-4">
         <div class="card-header">
         <i class="fas fa-table me-1"></i>
-        Data Produk
+        Data Kartu
         </div>
         <div class="card-body">
         <table id="datatablesSimple">
@@ -33,11 +33,8 @@ $data_produk = $model->dataProduk();
                 <th>No</th>
                 <th>Kode</th>
                 <th>Nama</th>
-                <th>Harga Beli</th>
-                <th>Harga Jual</th>
-                <th>Stok</th>
-                <th>Minimal Stok</th>
-                <th>Jenis Produk </th>
+                <th>Diskon</th>
+                <th>Iuran</th>
             </tr>
             </thead>
             <tfoot>
@@ -45,28 +42,22 @@ $data_produk = $model->dataProduk();
                 <th>No</th>
                 <th>Kode</th>
                 <th>Nama</th>
-                <th>Harga Beli</th>
-                <th>Harga Jual</th>
-                <th>Stok</th>
-                <th>Minimal Stok</th>
-                <th>Jenis Produk </th>
+                <th>Diskon</th>
+                <th>Iuran</th>
             </tr>
             </tfoot>
             <tbody>
                 <?php
                 $no = 1;
-                foreach($data_produk as $row){
+                foreach($data_kartu as $row){
 
                 ?>
                 <tr>
                     <td><?= $no ?></td>
                     <td><?= $row['kode']?></td>
                     <td><?= $row['nama']?></td>
-                    <td><?= $row['harga_beli']?></td>
-                    <td><?= $row['harga_jual']?></td>
-                    <td><?= $row['stok']?></td>
-                    <td><?= $row['min_stok']?></td>
-                    <td><?= $row['jenis_produk_id']?></td>
+                    <td><?= $row['diskon']?>%</td>
+                    <td><?= $row['iuran']?></td>
                 </tr>
                 <?php
                 $no++; 

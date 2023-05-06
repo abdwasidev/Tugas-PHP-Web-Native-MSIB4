@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Tugas Web PHP Native 1 - Wasi</title>
+    <title>Tugas Web PHP Native 2 - Wasi</title>
   </head>
   <body>
     <div class="main-content">
-      <h1>Tugas Web PHP Native 1</h1>
+      <h1>Tugas Web PHP Native 2</h1>
       <section class="card">
         <h3>Detail</h3>
         <div>
           <p>
-            1. Tambahkan menu-menu lainnya, ambil dari hasil percobaan sebelumnya, seperti about, contact dan data(menggunakan table)<br/>
-            2. Pastikan berjalan dengan template admin yang Percobaan 1. <br/>
-            3. Implementasi Login menggunakan template
+              1. Pada menu master data tambahkan data : pelanggan, pesanan, kartu <br/>
+              2. buatlah model ketiga table tersebut <br/>
+              3. buat tampilan ketiga table 
           </p>
         </div>
       </section>
@@ -52,6 +52,11 @@
                     <td><a href="admin/?url=tables" target="_blank" rel="noopener noreferrer">Tables</a></td>
                     <td><a href="auth/?url=password" target="_blank" rel="noopener noreferrer">Forget Password</a></td>
                     <td><a href="admin/error/?url=" target="_blank" rel="noopener noreferrer">Error 500</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="admin/connection.php" target="_blank" rel="noopener noreferrer">Check Connection</a></td>
+                    <td><a href="#" target="_blank" rel="noopener noreferrer">-</a></td>
+                    <td><a href="#" target="_blank" rel="noopener noreferrer">-</a></td>
                   </tr>
                 </tbody>
               </table>

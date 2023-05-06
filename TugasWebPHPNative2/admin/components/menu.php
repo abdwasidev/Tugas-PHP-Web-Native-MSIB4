@@ -20,7 +20,7 @@
         <div class="sb-nav-link-icon">
             <i class="fas fa-columns"></i>
         </div>
-        Production
+        Data  
         <div class="sb-sidenav-collapse-arrow">
             <i class="fas fa-angle-down"></i>
         </div>
@@ -32,12 +32,21 @@
         data-bs-parent="#sidenavAccordion"
         >
         <nav class="sb-sidenav-menu-nested nav">
-            <a class="nav-link" href="./?url=product"
-            >Data Produk</a
-            >
-            <a class="nav-link" href="#"
-            >Data Supply</a
-            >
+            <a class="nav-link" href="./?url=product">Data Produk</a>
+            <a class="nav-link" href="./?url=pelanggan">Data Pelanggan</a>
+            <a class="nav-link" href="./?url=kartu">Data Kartu</a>
+            <a class="nav-link" href="./?url=jenis_produk">Data Jenis Produk</a>
+            <a class="nav-link" href="./?url=pesanan">Data Pesanan</a>
+            <a class="nav-link" href="./?url=pembayaran">Data Pembayaran</a>
+        </nav>
+        </div>
+        <div
+        class="collapse"
+        id="collapseLayouts"
+        aria-labelledby="headingOne"
+        data-bs-parent="#sidenavAccordion"
+        >
+        <nav class="sb-sidenav-menu-nested nav">
         </nav>
         </div>
         <a
