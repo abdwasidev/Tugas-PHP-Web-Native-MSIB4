@@ -23,8 +23,20 @@ $data_pesanan = $model->dataPesanan();
     </div>
     <div class="card mb-4">
         <div class="card-header">
-        <i class="fas fa-table me-1"></i>
-        Data Pesanan
+            <div class="row">
+                <div class="col">
+                    <div type="button" class="">
+                        <h4>Data Pesanan</h4>
+                    </div>
+                </div>
+                <div class="col">
+                    <a href="?url=pesanan-form">
+                    <button type="button" class="btn btn-primary">
+                        Add New Pesanan
+                    </button>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="card-body">
         <table id="datatablesSimple">
@@ -34,6 +46,7 @@ $data_pesanan = $model->dataPesanan();
                 <th>Tanggal</th>
                 <th>Total</th>
                 <th>Pelanggan</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tfoot>
@@ -42,6 +55,7 @@ $data_pesanan = $model->dataPesanan();
                 <th>Tanggal</th>
                 <th>Total</th>
                 <th>Pelanggan</th>
+                <th>Action</th>
             </tr>
             </tfoot>
             <tbody>
@@ -55,6 +69,15 @@ $data_pesanan = $model->dataPesanan();
                     <td><?= $row['tanggal']?></td>
                     <td>Rp.<?= $row['total']?></td>
                     <td><?= $row['pelanggan_id']?></td>
+                    <td>
+                        <form action="produk_controller.php" method="POST">
+                            <a class="btn btn-info btn-sm" href="?url=pesanan-detail&id=<?= $row ['id'] ?>">Detail</a>
+                            <a class="btn btn-warning btn-sm">Ubah</a>
+                            <a class="btn btn-danger btn-sm">Hapus</a>
+
+                            <input type="hidden" name="idx" value="<?= $row['id']?>">
+                        </form>
+                    </td>
                 </tr>
                 <?php
                 $no++; 

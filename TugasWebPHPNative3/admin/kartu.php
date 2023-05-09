@@ -23,8 +23,20 @@ $data_kartu = $model->dataKartu();
     </div>
     <div class="card mb-4">
         <div class="card-header">
-        <i class="fas fa-table me-1"></i>
-        Data Kartu
+            <div class="row">
+                <div class="col">
+                    <div type="button" class="">
+                        <h4>Data Kartu</h4>
+                    </div>
+                </div>
+                <div class="col">
+                    <a href="?url=kartu-form">
+                    <button type="button" class="btn btn-primary">
+                        Add New Kartu
+                    </button>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="card-body">
         <table id="datatablesSimple">
@@ -35,6 +47,7 @@ $data_kartu = $model->dataKartu();
                 <th>Nama</th>
                 <th>Diskon</th>
                 <th>Iuran</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tfoot>
@@ -44,6 +57,7 @@ $data_kartu = $model->dataKartu();
                 <th>Nama</th>
                 <th>Diskon</th>
                 <th>Iuran</th>
+                <th>Action</th>
             </tr>
             </tfoot>
             <tbody>
@@ -58,6 +72,15 @@ $data_kartu = $model->dataKartu();
                     <td><?= $row['nama']?></td>
                     <td><?= $row['diskon']?>%</td>
                     <td><?= $row['iuran']?></td>
+                    <td>
+                        <form action="produk_controller.php" method="POST">
+                            <a class="btn btn-info btn-sm" href="?url=kartu-detail&id=<?= $row ['id'] ?>">Detail</a>
+                            <a class="btn btn-warning btn-sm">Ubah</a>
+                            <a class="btn btn-danger btn-sm">Hapus</a>
+
+                            <input type="hidden" name="idx" value="<?= $row['id']?>">
+                        </form>
+                    </td>
                 </tr>
                 <?php
                 $no++; 

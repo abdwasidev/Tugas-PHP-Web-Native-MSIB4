@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Tugas Web PHP Native 2 - Wasi</title>
+    <title>Tugas Web PHP Native 3 - Wasi</title>
   </head>
   <body>
     <div class="main-content">
@@ -14,10 +14,8 @@
         <h3>Detail</h3>
         <div>
           <p>
-              1. Pada menu master data tambahkan data : pelanggan, pesanan, kartu <br/>
-              2. buatlah model ketiga table tersebut <br/>
-              3. buat tampilan ketiga table 
-          </p>
+              1. Buat create data pada table : pelanggan, pesanan, kartu<br/>
+              2. buatlah details data pada table-table diatas
         </div>
       </section>
       <section class="card">
@@ -33,16 +31,10 @@
                     <td><a href="admin/?url=product" target="_blank" rel="noopener noreferrer">Data Produk</a></td>
                   </tr>
                   <tr>
-                    <td><a href="admin/?url=jenis_produk" target="_blank" rel="noopener noreferrer">Data Jenis Produk</a></td>
-                  </tr>
-                  <tr>
                     <td><a href="admin/?url=pelanggan" target="_blank" rel="noopener noreferrer">Data Pelanggan</a></td>
                   </tr>
                   <tr>
                     <td><a href="admin/?url=pesanan" target="_blank" rel="noopener noreferrer">Data Pesanan</a></td>
-                  </tr>
-                  <tr>
-                    <td><a href="admin/?url=pembayaran" target="_blank" rel="noopener noreferrer">Data Pembayaran</a></td>
                   </tr>
                   <tr>
                     <td><a href="admin/?url=kartu" target="_blank" rel="noopener noreferrer">Data Kartu</a></td>
