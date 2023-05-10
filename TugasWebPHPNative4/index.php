@@ -5,17 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Tugas Web PHP Native 3 - Wasi</title>
+    <title>Tugas Web PHP Native 4 - Wasi</title>
   </head>
   <body>
+    <?php include_once 'header.php'; ?>
+    <br><br><br><br>
     <div class="main-content">
-      <h1>Tugas Web PHP Native 2</h1>
+      <h1>Tugas Web PHP Native 4</h1>
       <section class="card">
         <h3>Detail</h3>
         <div>
           <p>
-              1. Buat create data pada table : pelanggan, pesanan, kartu<br/>
-              2. buatlah details data pada table-table diatas
+              Buat update dan delete pada table : pelanggan, pesanan, kartu<br/>
+          </p>
         </div>
       </section>
       <section class="card">
@@ -49,4 +51,21 @@
       </section>
     </div>
   </body>
+<?php
+error_reporting(0);
+$hal = $_GET['hal'];
+if($hal == '/'){
+	include_once 'home.php';
+} else if( !empty($hal)){
+	include_once '' .$hal.'.php';
+} else {
+	include_once 'home.php';
+}
+
+?>
+
+
+<?php
+include_once 'footer.php';
+?>
 </html>
