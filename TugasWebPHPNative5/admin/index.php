@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include_once 'connection.php';
 include_once 'models/produk.php';
 include_once 'models/jenis_produk.php';
@@ -7,6 +8,10 @@ include_once 'models/kartu.php';
 include_once 'models/pelanggan.php';
 include_once 'models/pembayaran.php';
 include_once 'models/pesanan.php';
+include_once 'models/member.php';
+
+$sesi = $_SESSION['MEMBER'];
+if(isset($sesi)){
 
 ?>
 
@@ -75,3 +80,19 @@ include_once 'models/pesanan.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
 </html>
+
+<?php
+
+} else {
+    ?>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Anda tidak boleh masuk!'
+        }).then(()=> history.back());
+    </script>
+  <?php  
+}
+
+?>

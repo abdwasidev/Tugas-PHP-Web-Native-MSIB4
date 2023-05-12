@@ -3,6 +3,10 @@
 $model = new Produk();
 $data_produk = $model->dataProduk();
 
+
+$sesi = $_SESSION['MEMBER'];
+if(isset($sesi)){
+
 ?>
 
 <head>
@@ -29,6 +33,9 @@ $data_produk = $model->dataProduk();
                         <h4>Data Product</h4>
                     </div>
                 </div>
+                <?php 
+                if($sesi['role'] != 'staff'){
+                ?> 
                 <div class="col">
                     <a href="?url=product-form">
                     <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop1">
@@ -36,6 +43,7 @@ $data_produk = $model->dataProduk();
                     </button>
                     </a>
                 </div>
+                <?php } ?>
             </div>
         </div>
         <div class="card-body">
@@ -102,3 +110,19 @@ $data_produk = $model->dataProduk();
     </div>
     </div>
 </main>
+
+<?php
+
+} else {
+    ?>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Anda tidak memiliki akses!'
+        }).then(()=> history.back());
+    </script>
+  <?php  
+}
+
+?>

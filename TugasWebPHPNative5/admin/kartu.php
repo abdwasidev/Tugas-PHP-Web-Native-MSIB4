@@ -3,6 +3,9 @@
 $model = new Kartu();
 $data_kartu = $model->dataKartu();
 
+$sesi = $_SESSION['MEMBER'];
+if(isset($sesi)){
+
 ?>
 
 <head>
@@ -29,6 +32,9 @@ $data_kartu = $model->dataKartu();
                         <h4>Data Kartu</h4>
                     </div>
                 </div>
+                <?php 
+                if($sesi['role'] != 'staff'){
+                ?> 
                 <div class="col">
                     <a href="?url=kartu-form">
                     <button type="button" class="btn btn-primary">
@@ -36,6 +42,7 @@ $data_kartu = $model->dataKartu();
                     </button>
                     </a>
                 </div>
+                <?php } ?>
             </div>
         </div>
         <div class="card-body">
@@ -93,3 +100,19 @@ $data_kartu = $model->dataKartu();
     </div>
     </div>
 </main>
+
+<?php
+
+} else {
+    ?>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Anda tidak memiliki akses!'
+        }).then(()=> history.back());
+    </script>
+  <?php  
+}
+
+?>

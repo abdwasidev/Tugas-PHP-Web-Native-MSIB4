@@ -1,3 +1,9 @@
+<?php
+error_reporting(0);
+include_once 'admin/connection.php';
+include_once 'admin/models/product.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,65 +11,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Tugas Web PHP Native 4 - Wasi</title>
+    <title>Tugas Web PHP Native 5 - Wasi</title>
   </head>
   <body>
     <?php include_once 'header.php'; ?>
-    <br><br><br><br>
-    <div class="main-content">
-      <h1>Tugas Web PHP Native 4</h1>
-      <section class="card">
-        <h3>Detail</h3>
-        <div>
-          <p>
-              Buat update dan delete pada table : pelanggan, pesanan, kartu<br/>
-          </p>
-        </div>
-      </section>
-      <section class="card">
-        <h3>Routes</h3>
-          <div class="data-hasil">
-            <div class="scroll">
-              <table width=100%>
-                <tbody>
-                  <tr>
-                    <td><a href="admin/connection.php" target="_blank" rel="noopener noreferrer">Check Connection</a></td>
-                  </tr>
-                  <tr>
-                    <td><a href="admin/?url=product" target="_blank" rel="noopener noreferrer">Data Produk</a></td>
-                  </tr>
-                  <tr>
-                    <td><a href="admin/?url=pelanggan" target="_blank" rel="noopener noreferrer">Data Pelanggan</a></td>
-                  </tr>
-                  <tr>
-                    <td><a href="admin/?url=pesanan" target="_blank" rel="noopener noreferrer">Data Pesanan</a></td>
-                  </tr>
-                  <tr>
-                    <td><a href="admin/?url=kartu" target="_blank" rel="noopener noreferrer">Data Kartu</a></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-            
-        <br />
-        <br />
-      </section>
-    </div>
   </body>
 <?php
 error_reporting(0);
-$hal = $_GET['hal'];
-if($hal == '/'){
+$url = $_GET['url'];
+if($url == '/'){
 	include_once 'home.php';
-} else if( !empty($hal)){
-	include_once '' .$hal.'.php';
+} else if( !empty($url)){
+	include_once '' .$url.'.php';
 } else {
 	include_once 'home.php';
 }
 
 ?>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <?php
 include_once 'footer.php';
