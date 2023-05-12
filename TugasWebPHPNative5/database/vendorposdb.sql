@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2023 at 12:39 AM
+-- Generation Time: May 12, 2023 at 03:29 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -97,7 +97,34 @@ INSERT INTO `kartu` (`id`, `kode`, `nama`, `diskon`, `iuran`) VALUES
 (1, 'BC00', 'Bronce Card', 0, 10000),
 (2, 'SC00', 'Silver Card', 5, 50000),
 (3, 'GC00', 'Gold Card', 10, 150000),
-(4, 'PC00', 'Platinum Card', 20, 500000);
+(4, 'PC00', 'Platinum Card', 20, 500000),
+(5, 'Test', 'TestCardKu', 10, 30000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `id` int(11) NOT NULL,
+  `fullname` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(75) NOT NULL,
+  `role` enum('admin','manager','staff') DEFAULT NULL,
+  `fotouser` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`id`, `fullname`, `username`, `password`, `role`, `fotouser`) VALUES
+(1, 'superadmin', 'superadmin@admin.com', '6b6e2b6a57bb6224abd3cb6d1f243ec86b995ce1', 'admin', 'superadmin.png'),
+(2, 'admin', 'admin@admin.com', 'af7e0928fcba501d8ed0385c794e690fe151bf16', 'admin', 'admin.png'),
+(3, 'supernamager', 'supermanager@manager.com', '605dcdf6c6a2c0c5a44309186c503f5f97eb45c8', 'manager', 'supermanager.png'),
+(4, 'manager', 'manager@manager.com', '54dd75eddaa72e610b060ae82548b2430a4dfbdc', 'manager', 'manager.png'),
+(5, 'staff', 'staff@staff.com', 'ae186d20e1a1b46737a98ef69fc0896ba7cca385', 'staff', 'staff.png');
 
 -- --------------------------------------------------------
 
@@ -132,7 +159,8 @@ INSERT INTO `pelanggan` (`id`, `kode`, `nama_pelanggan`, `jk`, `tmp_lahir`, `tgl
 (10, '0008', 'Gita', 'P', 'Gresik', '2001-10-03', 'gita@gmail.com', 'Jl. Jus Mangga No.5', 3),
 (11, '0009', 'Mitai', 'P', 'Solo', '2000-02-18', 'mitai@gmail.com', 'Jl. Violet No.5', 3),
 (12, '0010', 'Dio', 'L', 'Makassar', '2003-05-12', 'dio@gmail.com', 'Jl. Matahari Timur No.71', 2),
-(14, '0011', 'Slamet', 'L', 'Surabaya', '2001-11-14', 'slamet@gmail.com', 'Jl. Merbabu Selatan No.44', 2);
+(14, '0011', 'Slamet', 'L', 'Surabaya', '2001-11-14', 'slamet@gmail.com', 'Jl. Merbabu Selatan No.44', 2),
+(16, 'LoremIpsum', 'Ubah LoremIpsum', 'L', 'LoremIpsum', '2000-01-05', 'LoremIpsum@gmail.com', 'Jl. LoremIpsum', 4);
 
 -- --------------------------------------------------------
 
@@ -225,7 +253,9 @@ INSERT INTO `pesanan` (`id`, `tanggal`, `total`, `pelanggan_id`) VALUES
 (11, '2022-02-14', 900000, 2),
 (12, '2022-02-14', 1130000, 5),
 (13, '2022-02-14', 610000, 6),
-(14, '2022-02-14', 530000, 9);
+(14, '2022-02-14', 530000, 9),
+(15, '2023-03-14', 300000, 4),
+(16, '2023-03-14', 4000000, 3);
 
 -- --------------------------------------------------------
 
@@ -302,7 +332,16 @@ INSERT INTO `produk` (`id`, `kode`, `nama`, `harga_beli`, `harga_jual`, `stok`, 
 (10, 'E004', 'Smartphone Ram 4GB', 1400000, 1550000, 35, 1, 1),
 (11, 'F004', 'Kursi Gaming', 3000000, 3400000, 40, 1, 4),
 (12, 'E005', 'Smartphone Ram 8GB', 5000000, 5400000, 25, 1, 1),
-(15, 'F006', 'Lemari Anak', 300000, 350000, 23, 2, 4);
+(15, 'F006', 'Lemari Anak', 300000, 350000, 23, 2, 4),
+(16, 'TV013', 'TV MURAH 40 INCH', 550000, 500000, 300, 10, 4),
+(17, '', '', 0, 0, 0, 0, 0),
+(19, 'kawawd', 'oihwoidh', 214112, 631912, 123, 1, 5),
+(20, 'awhdi', 'ioawhd', 3523523, 213131, 433, 12, 6),
+(21, 'F007', 'Meja Komputer', 550000, 500000, 80, 12, 4),
+(22, 'tfytfy', 'yugawud', 7123, 762138, 2342, 34, 5),
+(23, 'ugawuygu', 'gawugd', 7652135, 7216771, 213423, 12, 532),
+(24, 'wqe', 'Gimbal', 721361, 7216312, 23423, 2342, 2),
+(25, '892732', 'Test Product 1', 500000, 400000, 30, 12, 2);
 
 -- --------------------------------------------------------
 
@@ -343,6 +382,13 @@ ALTER TABLE `jenis_produk`
 ALTER TABLE `kartu`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `kode` (`kode`);
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `pelanggan`
@@ -405,13 +451,19 @@ ALTER TABLE `jenis_produk`
 -- AUTO_INCREMENT for table `kartu`
 --
 ALTER TABLE `kartu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
@@ -429,7 +481,7 @@ ALTER TABLE `pembelian`
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pesanan_items`
@@ -441,7 +493,7 @@ ALTER TABLE `pesanan_items`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `vendor`
